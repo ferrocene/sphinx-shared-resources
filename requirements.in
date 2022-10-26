@@ -9,7 +9,7 @@ sphinx-autobuild
 # only pulled in by pip when an older Python version is used.
 importlib-metadata < 4.9
 zipp < 3.7
-typing-extensions < 4.2
+typing-extensions < 4.5
 jinja2 < 3.1
 markupsafe < 2.1
 requests < 2.28
