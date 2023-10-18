@@ -328,9 +328,9 @@ tornado==6.3.3 \
     --hash=sha256:ceb917a50cd35882b57600709dd5421a418c29ddc852da8bcdab1f0db33406b0 \
     --hash=sha256:e7d8db41c0181c80d76c982aacc442c0783a2c54d6400fe028954201a2e032fe
     # via livereload
-urllib3==1.26.17 \
-    --hash=sha256:24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21 \
-    --hash=sha256:94a757d178c9be92ef5539b8840d48dc9cf1b2709c9d6b588232a055c524458b
+urllib3==2.0.7 \
+    --hash=sha256:c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84 \
+    --hash=sha256:fdb6d215c776278489906c2f8916e6e7d4f5a9b602ccbcfdf7f016fc8da0596e
     # via requests
 zipp==3.14.0 \
     --hash=sha256:188834565033387710d046e3fe96acfc9b5e86cbca7f39ff69cf21a4128198b7 \
