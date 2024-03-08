@@ -73,6 +73,8 @@
     --code-block-bg: #f7f7f7;
     --focus-border: #68a4e8;
     --table-border: #dbdbdb;
+    --problematic-fg: #fff;
+    --problematic-bg: #f00;
 
     --body-bg: #fff;
     --header-fg: #194e80;
@@ -101,6 +103,8 @@
     --blockquote-border: #dbdbdb;
 
     --content-width: 50rem;
+
+    --relnotes-badge-bg: #ffe033;
 
     --spec-error-fg: #f00;
     --spec-syntax-literal-bg: #dbdbdb;
@@ -131,6 +135,10 @@ body {
     outline: 2px solid var(--focus-border);
 }
 
+.hidden {
+    display: none;
+}
+
 /************
  *   Text   *
  ************/
@@ -140,12 +148,24 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+/* Used by the ferrocene-autoglossary for automatically inserted glossary links */
+a.ferrocene-autoglossary {
+    color: inherit;
     text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 0.25em;
 }
 
-p {
+a:hover {
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+p, div.line-block {
     margin: 1em 0;
+}
+
+p, div.line-block div.line {
     line-height: 1.5em;
 }
 
@@ -156,6 +176,14 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
 }
 
 /****************
@@ -248,10 +276,12 @@ code {
     padding: 0 0.2em;
     border-radius: 0.2em;
     outline: 0.1em solid var(--inline-code-border);
+    margin: 0 0.1em;
 }
 
 pre code {
     background: transparent;
+    margin: 0;
     padding: 0;
     border-radius: 0;
     outline: none;
@@ -275,6 +305,11 @@ li > p:first-child {
 }
 
 li > p:last-child {
+    margin-bottom: 0;
+}
+
+/* Don't add extra margin before a nested list */
+li > p:has(+ ul) {
     margin-bottom: 0;
 }
 
@@ -442,34 +477,34 @@ nav div.toctree {
     padding: 1.25rem 0 1rem 0;
 }
 
-nav p.caption {
+nav div.toctree p.caption {
     font-weight: 700;
     margin: 1.25rem 1rem 0.5rem 1rem;
 }
 
-nav p.caption:first-child {
+nav div.toctree p.caption:first-child {
     margin-top: 0;
 }
 
-nav ul {
+nav div.toctree ul {
     margin: 0;
     padding: 0;
 }
 
-nav li {
+nav div.toctree li {
     margin: 0;
     list-style: none;
 }
 
-nav a {
+nav div.toctree a {
     color: var(--sidebar-inactive-fg);
     text-decoration: none;
     padding: 0.35rem 1rem;
     display: block;
 }
 
-nav a:hover,
-nav a.current {
+nav div.toctree a:hover,
+nav div.toctree a.current {
     color: var(--sidebar-active-fg);
     text-decoration: none;
 }
@@ -526,6 +561,7 @@ div.toctree-wrapper p.caption {
  **************/
 
 table {
+    margin: 1em 0;
     border-collapse: collapse;
 
     /* Let the table overflow on the right */
@@ -547,6 +583,7 @@ table td, table th {
     padding: 0.4em;
     border-bottom: 1px solid var(--table-border);
     text-align: left;
+    vertical-align: top;
 }
 
 table tr:last-child td {
@@ -554,11 +591,11 @@ table tr:last-child td {
 }
 
 td > :first-child, th > :first-child {
-    margin-top: 0;
+    margin-top: 0 !important;
 }
 
 td > :last-child, th > :last-child {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 td span.spec-paragraph-id, th span.spec-paragraph-id {
@@ -616,6 +653,10 @@ dl dt {
     font-weight: 700;
 }
 
+dl dt + dt {
+    margin-top: 0.3em;
+}
+
 dl dt:first-child {
     margin-top: 0;
 }
@@ -661,6 +702,41 @@ blockquote {
 
 blockquote code {
     font-style: normal;
+}
+
+/*********************
+ *   Inline errors   *
+ *********************/
+
+.problematic {
+    color: var(--problematic-fg);
+    background: var(--problematic-bg);
+}
+
+/****************************
+ *   contents:: directive   *
+ ****************************/
+
+nav.contents > p.topic-title {
+    font-weight: bold;
+}
+
+/****************************
+ *   Release notes badges   *
+ ****************************/
+
+span.relnotes-upcoming-badge {
+    display: inline-block;
+    background: var(--relnotes-badge-bg);
+    color: var(--text-fg);
+
+    text-transform: capitalize;
+    font-size: 0.75em;
+    font-weight: 700;
+
+    margin-left: 0.75em;
+    padding: 0.2em 0.5em;
+    border-radius: 0.3em;
 }
 
 /**************************************************
