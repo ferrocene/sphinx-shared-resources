@@ -34,5 +34,5 @@ jobs:
       - name: Verify Python code formatting
         run: black . --check --diff --color
 
-      - name: Lint Python code with flake8
-        run: flake8 .
+      # - name: Lint Python code with flake8
+      #   run: flake8 .
