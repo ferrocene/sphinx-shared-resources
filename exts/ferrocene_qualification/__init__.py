@@ -1,7 +1,14 @@
 # SPDX-License-Identifier: MIT OR Apache-2.0
 # SPDX-FileCopyrightText: The Ferrocene Developers
 
-from . import substitutions, document_id, domain, signature_page, target
+from . import (
+    document_id,
+    domain,
+    intersphinx_support,
+    signature_page,
+    substitutions,
+    target,
+)
 import string
 
 
@@ -11,6 +18,7 @@ def setup(app):
     domain.setup(app)
     signature_page.setup(app)
     target.setup(app)
+    intersphinx_support.setup(app)
 
     app.connect("config-inited", validate_config)
     app.add_config_value("ferrocene_id", None, "env", [str])
@@ -18,9 +26,9 @@ def setup(app):
     app.add_config_value("ferrocene_target_names_path", None, "env", [str])
     app.add_config_value("ferrocene_signature", None, "env", [str])
     app.add_config_value("ferrocene_private_signature_files_dir", None, "env", [str])
+    app.add_config_value("rustfmt_version", None, "env", [str])
     app.add_config_value("ferrocene_version", None, "env", [str])
     app.add_config_value("rust_version", None, "env", [str])
-    app.add_config_value("channel", None, "env", [str])
 
     return {
         "version": "0",
