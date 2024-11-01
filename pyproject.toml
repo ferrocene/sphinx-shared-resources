@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: The Ferrocene Developers
+# SPDX-License-Identifier: MIT OR Apache-2.0
+[project]
+name = "sphinx-shared-resources"
+version = "0.0.1"
+requires-python = ">=3.12"
+dependencies = [
+    "sphinx",
+    "sphinx-autobuild",
+    "tomli",
+    "myst_parser",
+    "pyyaml",
+    "semver",
+
+    # For compatibility with Python < 3.10, as Sphinx has a conditional dependency
+    # on importlib-metadata on older Python versions.
+    "importlib-metadata"
+]
