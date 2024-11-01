@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: sphinx_shared_resources
+Version: 0.0.1
+Requires-Python: >=3.12
+Requires-Dist: sphinx
+Requires-Dist: sphinx-autobuild
+Requires-Dist: tomli
+Requires-Dist: myst_parser
+Requires-Dist: pyyaml
+Requires-Dist: semver
+Requires-Dist: importlib-metadata

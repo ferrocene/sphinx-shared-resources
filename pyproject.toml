@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: The Ferrocene Developers
 # SPDX-License-Identifier: MIT OR Apache-2.0
 [project]
-name = "sphinx-shared-resources"
+name = "sphinx_shared_resources"
 version = "0.0.1"
 requires-python = ">=3.12"
 dependencies = [

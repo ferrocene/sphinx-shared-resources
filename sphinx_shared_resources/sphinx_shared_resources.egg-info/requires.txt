@@ -1,0 +1,7 @@
+sphinx
+sphinx-autobuild
+tomli
+myst_parser
+pyyaml
+semver
+importlib-metadata
