@@ -20,7 +20,9 @@ jobs:
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
 
       - name: Check that the requirements are installable
-        run: uv pip install -r pyproject.toml
+        run: |
+          uv venv
+          uv pip install -r pyproject.toml
 
       - name: Verify licensing metadata
         run: uvx reuse lint
