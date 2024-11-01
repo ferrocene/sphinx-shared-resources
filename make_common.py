@@ -10,11 +10,9 @@
 from pathlib import Path
 import argparse
 import subprocess
-import venv
-import sys
 
 
-def build_docs(root, env, builder, clear, serve, debug):
+def build_docs(root, builder, clear, serve, debug):
     dest = root / "build"
 
     args = ["-b", builder, "-d", dest / "doctrees"]
@@ -43,7 +41,7 @@ def build_docs(root, env, builder, clear, serve, debug):
     try:
         subprocess.run(
             [
-                env.bin("sphinx-autobuild" if serve else "sphinx-build"),
+                ("sphinx-autobuild" if serve else "sphinx-build"),
                 *args,
                 root / "src",
                 dest / builder,
@@ -139,7 +137,7 @@ def main(root):
     args = parser.parse_args()
 
     rendered = build_docs(
-        root, env, "xml" if args.xml else "html", args.clear, args.serve, args.debug
+        root, "xml" if args.xml else "html", args.clear, args.serve, args.debug
     )
 
     if args.check_links:
