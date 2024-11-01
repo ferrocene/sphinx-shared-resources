@@ -16,3 +16,6 @@ dependencies = [
     # on importlib-metadata on older Python versions.
     "importlib-metadata"
 ]
+
+[tool.setuptools]
+packages = ["sphinx_shared_resources"]
